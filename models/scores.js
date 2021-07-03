@@ -10,10 +10,13 @@ const scoreSchema = new mongoose.Schema(
         scores: [
             {
                 subround: String,
-                round_score: {
-                    quizzer: String,
-                    score: Number
-                }
+                round_score: [
+                    {
+                        quizzer: String,
+                        q_num: Number,
+                        score: Number
+                    }
+                ]
             }
         ]
     }
