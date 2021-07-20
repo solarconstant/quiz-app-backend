@@ -10,13 +10,37 @@ const quizSchema = new mongoose.Schema(
         rounds: [
             {
                 type: String,
-                enum: ["Preliminary", "Main", "Wildcard"]
+                enum: ["Preliminary", "Main"]
             }
         ],
         sub_rounds: [
             {
                 type: String,
-                enum: ["Pounce", "Pounce + Bounce", "Buzzer", "Differential", "Long Visual Connect"]
+                enum: ["Prelims", "Pounce", "Pounce + Bounce", "Buzzer", "Differential", "Long Visual Connect"],
+                num_of_ques: Number,
+                predefined_scores: {
+                    correctPrelim:Number,
+                    incorrectPrelim: Number,
+                    //
+                    correctDirect: Number,
+                    incorrectDirect: Number,
+                    correctPounce: Number,
+                    incorrectPounce: Number,
+                    correctBounce: Number,
+                    incorrectBounce: Number,
+                    //
+                    correctBuzz: Number,
+                    incorrectBuzz: Number,
+                    //
+                    totalDifferential: Number,
+                    //
+                    longVisualConnect:[
+                        {
+                            correct: Number,
+                            incorrect: Number
+                        }
+                    ]
+                }
             }
         ],
         participants: [
